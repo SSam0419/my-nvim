@@ -862,6 +862,15 @@ require('lazy').setup({
   -- Or use telescope!
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
   -- you can continue same window with `<space>sr` which resumes last telescope search
+
+  -- plugin for the floating cmd line
+  {
+    'VonHeikemen/fine-cmdline.nvim',
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+    },
+    vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', { noremap = true }),
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
