@@ -11,13 +11,13 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '<leader>e', ':Neotree reveal position=current<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>et', ':Neotree reveal position=current<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
     filesystem = {
       window = {
         mappings = {
-          ['<leader>e'] = 'close_window',
+          ['<leader>et'] = 'close_window',
         },
       },
     },
