@@ -179,9 +179,12 @@ return {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { 'williamboman/mason.nvim', opts = {
-        ensure_installed = { 'gopls@0.15.3', 'tsserver', 'eslint', 'cssls', 'html', 'tailwindcss' },
-      } },
+      {
+        'williamboman/mason.nvim',
+        opts = {
+          ensure_installed = { 'gopls@0.15.3', 'ts_ls', 'eslint', 'cssls', 'html', 'tailwindcss' },
+        },
+      },
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -388,6 +391,16 @@ return {
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
+        ensure_installed = {
+          'ts_ls', -- TypeScript/JavaScript
+          'gopls', -- Go
+          'eslint', -- ESLint
+          'cssls', -- CSS
+          'html', -- HTML
+          'tailwindcss', -- Tailwind
+          'jsonls', -- JSON
+        },
+        automatic_installation = true,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
