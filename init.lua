@@ -47,7 +47,7 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -255,10 +255,22 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
     end,
   },
-  { "catppuccin/nvim", name = "catppuccin",
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    opts = {
+      color_overrides = {
+        mocha = {
+          base = '#000000',
+          mantle = '#000000',
+          crust = '#000000',
+        },
+      },
+    },
     config = function()
       vim.cmd 'colorscheme catppuccin'
-    end, },
+    end,
+  },
   {
     'rose-pine/neovim',
     name = 'rose-pine',
